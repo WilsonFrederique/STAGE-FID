@@ -11,8 +11,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { ImPrinter } from "react-icons/im";
 import Pagination from '@mui/material/Pagination';
 import { CiSquareInfo, CiCircleRemove } from "react-icons/ci";
-import { FaDownload } from "react-icons/fa";
-import { FaMapMarkerAlt, FaUser, FaCalendarAlt, FaMoneyBillWave } from "react-icons/fa";
+import { FaMapMarkerAlt, FaCalendarAlt, FaMoneyBillWave } from "react-icons/fa";
 import { 
   Dialog, DialogActions, DialogContent, DialogTitle, 
   TextField, MenuItem, Select, FormControl, InputLabel,
@@ -302,248 +301,562 @@ const ProjetFormModal: React.FC<{
   };
 
   return (
-    <Dialog open={isOpen} onClose={onClose} maxWidth="lg" fullWidth className="modern-dialog">
-      <DialogTitle className="modern-dialog-title">
-        {projet ? "Modifier le projet" : "Ajouter un nouveau projet"}
-      </DialogTitle>
-      <form onSubmit={handleSubmit}>
-        <DialogContent className="modern-dialog-content">
-          <div className="modern-form-grid">
-            <div className="modern-form-group">
-              <label className="modern-form-label">Référence *</label>
-              <TextField
-                value={formData.reference}
-                onChange={(e) => handleChange('reference', e.target.value)}
-                fullWidth
-                variant="outlined"
-                size="small"
-                required
-                className="modern-text-field"
-              />
-            </div>
-            
-            <div className="modern-form-group">
-              <label className="modern-form-label">Nom *</label>
-              <TextField
-                value={formData.nom}
-                onChange={(e) => handleChange('nom', e.target.value)}
-                fullWidth
-                variant="outlined"
-                size="small"
-                required
-                className="modern-text-field"
-              />
-            </div>
-            
-            <div className="modern-form-group">
-              <label className="modern-form-label">Type de projet *</label>
-              <FormControl fullWidth size="small">
-                <Select
-                  value={formData.type_projet}
-                  onChange={(e) => handleChange('type_projet', e.target.value)}
-                  required
-                  className="modern-select"
+    <Dialog 
+        open={isOpen} 
+        onClose={onClose} 
+        maxWidth="xl" 
+        fullWidth 
+        className="modern-form-dialog"
+        PaperProps={{
+            sx: {
+                borderRadius: '24px',
+                background: 'var(--modal-bg)',
+                backgroundImage: 'linear-gradient(135deg, var(--card-bg) 0%, var(--modal-bg) 100%)',
+                boxShadow: '0 32px 64px rgba(0, 0, 0, 0.2)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.1)'
+            }
+        }}
+    >
+        {/* En-tête avec gradient animé */}
+        <DialogTitle className="modern-dialog-header">
+            <div className="header-content">
+                <div className="title-section">
+                    <div className="icon-wrapper">
+                        <div className="form-icon">
+                            {projet ? '📊' : '🚀'}
+                        </div>
+                    </div>
+                    <div>
+                        <h2 className="dialog-main-title">
+                            {projet ? "Modifier le projet" : "Nouveau projet"}
+                        </h2>
+                        <p className="dialog-subtitle">
+                            {projet ? "Mettez à jour les informations du projet" : "Créez un nouveau projet en remplissant les champs ci-dessous"}
+                        </p>
+                    </div>
+                </div>
+                <button 
+                    className="close-button" 
+                    onClick={onClose}
+                    aria-label="Fermer"
                 >
-                  <MenuItem value="infrastructure">Infrastructure</MenuItem>
-                  <MenuItem value="social">Social</MenuItem>
-                  <MenuItem value="formation">Formation</MenuItem>
-                  <MenuItem value="urgence">Urgence</MenuItem>
-                </Select>
-              </FormControl>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                </button>
             </div>
-            
-            <div className="modern-form-group">
-              <label className="modern-form-label">Localisation *</label>
-              <TextField
-                value={formData.localisation}
-                onChange={(e) => handleChange('localisation', e.target.value)}
-                fullWidth
-                variant="outlined"
-                size="small"
-                required
-                className="modern-text-field"
-              />
-            </div>
-            
-            <div className="modern-form-group">
-              <label className="modern-form-label">Budget prévu (MGA) *</label>
-              <TextField
-                type="number"
-                value={formData.budget_prevue}
-                onChange={(e) => handleNumberChange('budget_prevue', e.target.value)}
-                fullWidth
-                variant="outlined"
-                size="small"
-                required
-                className="modern-text-field"
-                InputProps={{
-                  startAdornment: <InputAdornment position="start">Ar</InputAdornment>,
-                }}
-              />
-            </div>
-            
-            <div className="modern-form-group">
-              <label className="modern-form-label">Budget dépensé (MGA)</label>
-              <TextField
-                type="number"
-                value={formData.budget_depense}
-                onChange={(e) => handleNumberChange('budget_depense', e.target.value)}
-                fullWidth
-                variant="outlined"
-                size="small"
-                className="modern-text-field"
-                InputProps={{
-                  startAdornment: <InputAdornment position="start">Ar</InputAdornment>,
-                }}
-              />
-            </div>
-            
-            <div className="modern-form-group">
-              <label className="modern-form-label">État</label>
-              <FormControl fullWidth size="small">
-                <Select
-                  value={formData.etat}
-                  onChange={(e) => handleChange('etat', e.target.value)}
-                  className="modern-select"
-                >
-                  <MenuItem value="planifie">Planifié</MenuItem>
-                  <MenuItem value="en_cours">En cours</MenuItem>
-                  <MenuItem value="suspendu">Suspendu</MenuItem>
-                  <MenuItem value="termine">Terminé</MenuItem>
-                  <MenuItem value="annule">Annulé</MenuItem>
-                </Select>
-              </FormControl>
-            </div>
-            
-            <div className="modern-form-group">
-              <label className="modern-form-label">Priorité</label>
-              <FormControl fullWidth size="small">
-                <Select
-                  value={formData.priorite}
-                  onChange={(e) => handleChange('priorite', e.target.value)}
-                  className="modern-select"
-                >
-                  <MenuItem value="basse">Basse</MenuItem>
-                  <MenuItem value="moyenne">Moyenne</MenuItem>
-                  <MenuItem value="haute">Haute</MenuItem>
-                  <MenuItem value="critique">Critique</MenuItem>
-                </Select>
-              </FormControl>
-            </div>
-            
-            <div className="modern-form-group">
-              <label className="modern-form-label">Avancement (%)</label>
-              <TextField
-                type="number"
-                value={formData.pourcentage_avancement}
-                onChange={(e) => handleNumberChange('pourcentage_avancement', e.target.value)}
-                fullWidth
-                variant="outlined"
-                size="small"
-                inputProps={{ min: 0, max: 100 }}
-                className="modern-text-field"
-                InputProps={{
-                  endAdornment: <InputAdornment position="end">%</InputAdornment>,
-                }}
-              />
-            </div>
-            
-            <div className="modern-form-group">
-              <label className="modern-form-label">Date début prévue</label>
-              <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={fr}>
-                <DatePicker
-                  value={formData.date_debut_prevue}
-                  onChange={(date) => handleChange('date_debut_prevue', date)}
-                  renderInput={(params) => (
-                    <TextField 
-                      {...params} 
-                      fullWidth 
-                      size="small" 
-                      className="modern-text-field"
-                    />
-                  )}
-                />
-              </LocalizationProvider>
-            </div>
-            
-            <div className="modern-form-group">
-              <label className="modern-form-label">Date fin prévue</label>
-              <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={fr}>
-                <DatePicker
-                  value={formData.date_fin_prevue}
-                  onChange={(date) => handleChange('date_fin_prevue', date)}
-                  renderInput={(params) => (
-                    <TextField 
-                      {...params} 
-                      fullWidth 
-                      size="small" 
-                      className="modern-text-field"
-                    />
-                  )}
-                />
-              </LocalizationProvider>
-            </div>
-            
-            <div className="modern-form-group">
-              <label className="modern-form-label">Date début réelle</label>
-              <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={fr}>
-                <DatePicker
-                  value={formData.date_debut_reelle}
-                  onChange={(date) => handleChange('date_debut_reelle', date)}
-                  renderInput={(params) => (
-                    <TextField 
-                      {...params} 
-                      fullWidth 
-                      size="small" 
-                      className="modern-text-field"
-                    />
-                  )}
-                />
-              </LocalizationProvider>
-            </div>
-            
-            <div className="modern-form-group">
-              <label className="modern-form-label">Date fin réelle</label>
-              <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={fr}>
-                <DatePicker
-                  value={formData.date_fin_reelle}
-                  onChange={(date) => handleChange('date_fin_reelle', date)}
-                  renderInput={(params) => (
-                    <TextField 
-                      {...params} 
-                      fullWidth 
-                      size="small" 
-                      className="modern-text-field"
-                    />
-                  )}
-                />
-              </LocalizationProvider>
-            </div>
-            
-            <div className="modern-form-group full-width">
-              <label className="modern-form-label">Description</label>
-              <TextField
-                value={formData.description}
-                onChange={(e) => handleChange('description', e.target.value)}
-                fullWidth
-                variant="outlined"
-                size="small"
-                multiline
-                rows={4}
-                className="modern-text-field"
-              />
-            </div>
-          </div>
-        </DialogContent>
-        <DialogActions className="modern-dialog-actions">
-          <button type="button" className="modern-btn secondary" onClick={onClose}>
-            Annuler
-          </button>
-          <button type="submit" className="modern-btn primary">
-            {projet ? "Modifier" : "Ajouter"}
-          </button>
-        </DialogActions>
-      </form>
+        </DialogTitle>
+
+        <form onSubmit={handleSubmit}>
+            <DialogContent className="modern-dialog-content">
+                {/* Barre de progression pour les étapes du formulaire */}
+                <div className="form-progress">
+                    <div className="progress-steps">
+                        <div className="step active" data-step="1">
+                            <div className="step-number">1</div>
+                            <span className="step-label">Informations de base</span>
+                        </div>
+                        <div className="step" data-step="2">
+                            <div className="step-number">2</div>
+                            <span className="step-label">Budget & Dates</span>
+                        </div>
+                        <div className="step" data-step="3">
+                            <div className="step-number">3</div>
+                            <span className="step-label">État & Avancement</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="modern-form-layout">
+                    {/* Colonne principale */}
+                    <div className="form-main-column">
+                        {/* Section 1: Informations de base */}
+                        <div className="form-section">
+                            <div className="section-header">
+                                <div className="section-icon">📋</div>
+                                <h3 className="section-title">Informations générales</h3>
+                            </div>
+                            
+                            <div className="responsive-grid">
+                                <div className="form-group enhanced">
+                                    <label className="form-label">
+                                        <span className="label-text">Référence du projet</span>
+                                        <span className="required-asterisk">*</span>
+                                    </label>
+                                    <TextField
+                                        value={formData.reference}
+                                        onChange={(e) => handleChange('reference', e.target.value)}
+                                        fullWidth
+                                        variant="outlined"
+                                        size="small"
+                                        required
+                                        className="modern-input"
+                                        placeholder="Ex: PROJ-2024-001"
+                                        InputProps={{
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    <span className="input-icon">🔢</span>
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+                                    <div className="input-hint">Identifiant unique du projet</div>
+                                </div>
+
+                                <div className="form-group enhanced">
+                                    <label className="form-label">
+                                        <span className="label-text">Nom du projet</span>
+                                        <span className="required-asterisk">*</span>
+                                    </label>
+                                    <TextField
+                                        value={formData.nom}
+                                        onChange={(e) => handleChange('nom', e.target.value)}
+                                        fullWidth
+                                        variant="outlined"
+                                        size="small"
+                                        required
+                                        className="modern-input"
+                                        placeholder="Ex: Construction École Primaire"
+                                        InputProps={{
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    <span className="input-icon">🏗️</span>
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+                                </div>
+
+                                <div className="form-group enhanced">
+                                    <label className="form-label">
+                                        <span className="label-text">Type de projet</span>
+                                        <span className="required-asterisk">*</span>
+                                    </label>
+                                    <FormControl fullWidth size="small">
+                                        <Select
+                                            value={formData.type_projet}
+                                            onChange={(e) => handleChange('type_projet', e.target.value)}
+                                            required
+                                            className="modern-select"
+                                            renderValue={(selected) => (
+                                                <div className="selected-value">
+                                                    <span className="type-icon">
+                                                        {selected === 'infrastructure' ? '🏛️' :
+                                                         selected === 'social' ? '👥' :
+                                                         selected === 'formation' ? '🎓' : '🚨'}
+                                                    </span>
+                                                    {selected.charAt(0).toUpperCase() + selected.slice(1)}
+                                                </div>
+                                            )}
+                                        >
+                                            <MenuItem value="infrastructure">
+                                                <div className="menu-item-content">
+                                                    <span className="menu-icon">🏛️</span>
+                                                    Infrastructure
+                                                </div>
+                                            </MenuItem>
+                                            <MenuItem value="social">
+                                                <div className="menu-item-content">
+                                                    <span className="menu-icon">👥</span>
+                                                    Social
+                                                </div>
+                                            </MenuItem>
+                                            <MenuItem value="formation">
+                                                <div className="menu-item-content">
+                                                    <span className="menu-icon">🎓</span>
+                                                    Formation
+                                                </div>
+                                            </MenuItem>
+                                            <MenuItem value="urgence">
+                                                <div className="menu-item-content">
+                                                    <span className="menu-icon">🚨</span>
+                                                    Urgence
+                                                </div>
+                                            </MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </div>
+
+                                <div className="form-group enhanced">
+                                    <label className="form-label">
+                                        <span className="label-text">Localisation</span>
+                                        <span className="required-asterisk">*</span>
+                                    </label>
+                                    <TextField
+                                        value={formData.localisation}
+                                        onChange={(e) => handleChange('localisation', e.target.value)}
+                                        fullWidth
+                                        variant="outlined"
+                                        size="small"
+                                        required
+                                        className="modern-input"
+                                        placeholder="Ex: Antananarivo, Madagascar"
+                                        InputProps={{
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    <span className="input-icon">📍</span>
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Section 2: Budget et Dates */}
+                        <div className="form-section">
+                            <div className="section-header">
+                                <div className="section-icon">💰</div>
+                                <h3 className="section-title">Budget et planning</h3>
+                            </div>
+                            
+                            <div className="responsive-grid">
+                                <div className="form-group enhanced">
+                                    <label className="form-label">
+                                        <span className="label-text">Budget prévu</span>
+                                        <span className="required-asterisk">*</span>
+                                    </label>
+                                    <TextField
+                                        type="number"
+                                        value={formData.budget_prevue}
+                                        onChange={(e) => handleNumberChange('budget_prevue', e.target.value)}
+                                        fullWidth
+                                        variant="outlined"
+                                        size="small"
+                                        required
+                                        className="modern-input"
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position="start">Ar</InputAdornment>,
+                                            endAdornment: (
+                                                <InputAdornment position="end">
+                                                    <span className="currency-label">MGA</span>
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+                                    <div className="input-hint">Montant total alloué au projet</div>
+                                </div>
+
+                                <div className="form-group enhanced">
+                                    <label className="form-label">
+                                        <span className="label-text">Budget dépensé</span>
+                                    </label>
+                                    <TextField
+                                        type="number"
+                                        value={formData.budget_depense}
+                                        onChange={(e) => handleNumberChange('budget_depense', e.target.value)}
+                                        fullWidth
+                                        variant="outlined"
+                                        size="small"
+                                        className="modern-input"
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position="start">Ar</InputAdornment>,
+                                        }}
+                                    />
+                                </div>
+
+                                <div className="form-group enhanced">
+                                    <label className="form-label">Date début prévue</label>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={fr}>
+                                        <DatePicker
+                                            value={formData.date_debut_prevue}
+                                            onChange={(date) => handleChange('date_debut_prevue', date)}
+                                            renderInput={(params) => (
+                                                <TextField 
+                                                    {...params} 
+                                                    fullWidth 
+                                                    size="small" 
+                                                    className="modern-datepicker"
+                                                    InputProps={{
+                                                        startAdornment: (
+                                                            <InputAdornment position="start">
+                                                                <span className="input-icon">📅</span>
+                                                            </InputAdornment>
+                                                        ),
+                                                    }}
+                                                />
+                                            )}
+                                        />
+                                    </LocalizationProvider>
+                                </div>
+
+                                <div className="form-group enhanced">
+                                    <label className="form-label">Date fin prévue</label>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={fr}>
+                                        <DatePicker
+                                            value={formData.date_fin_prevue}
+                                            onChange={(date) => handleChange('date_fin_prevue', date)}
+                                            renderInput={(params) => (
+                                                <TextField 
+                                                    {...params} 
+                                                    fullWidth 
+                                                    size="small" 
+                                                    className="modern-datepicker"
+                                                />
+                                            )}
+                                        />
+                                    </LocalizationProvider>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Colonne latérale pour les informations secondaires */}
+                    <div className="form-sidebar">
+                        {/* Section État et Priorité */}
+                        <div className="sidebar-section">
+                            <h4 className="sidebar-title">État du projet</h4>
+                            
+                            <div className="compact-form-group">
+                                <label className="compact-label">État actuel</label>
+                                <FormControl fullWidth size="small">
+                                    <Select
+                                        value={formData.etat}
+                                        onChange={(e) => handleChange('etat', e.target.value)}
+                                        className="compact-select"
+                                        renderValue={(selected) => (
+                                            <div className="status-badge" data-status={selected}>
+                                                {selected.replace('_', ' ')}
+                                            </div>
+                                        )}
+                                    >
+                                        <MenuItem value="planifie">
+                                            <div className="status-option" data-status="planifie">
+                                                <div className="status-dot"></div>
+                                                Planifié
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem value="en_cours">
+                                            <div className="status-option" data-status="en_cours">
+                                                <div className="status-dot"></div>
+                                                En cours
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem value="suspendu">
+                                            <div className="status-option" data-status="suspendu">
+                                                <div className="status-dot"></div>
+                                                Suspendu
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem value="termine">
+                                            <div className="status-option" data-status="termine">
+                                                <div className="status-dot"></div>
+                                                Terminé
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem value="annule">
+                                            <div className="status-option" data-status="annule">
+                                                <div className="status-dot"></div>
+                                                Annulé
+                                            </div>
+                                        </MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </div>
+
+                            <div className="compact-form-group">
+                                <label className="compact-label">Niveau de priorité</label>
+                                <FormControl fullWidth size="small">
+                                    <Select
+                                        value={formData.priorite}
+                                        onChange={(e) => handleChange('priorite', e.target.value)}
+                                        className="compact-select"
+                                        renderValue={(selected) => (
+                                            <div className="priority-badge" data-priority={selected}>
+                                                {selected.charAt(0).toUpperCase() + selected.slice(1)}
+                                            </div>
+                                        )}
+                                    >
+                                        <MenuItem value="basse">
+                                            <div className="priority-option" data-priority="basse">
+                                                <div className="priority-indicator"></div>
+                                                Basse
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem value="moyenne">
+                                            <div className="priority-option" data-priority="moyenne">
+                                                <div className="priority-indicator"></div>
+                                                Moyenne
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem value="haute">
+                                            <div className="priority-option" data-priority="haute">
+                                                <div className="priority-indicator"></div>
+                                                Haute
+                                            </div>
+                                        </MenuItem>
+                                        <MenuItem value="critique">
+                                            <div className="priority-option" data-priority="critique">
+                                                <div className="priority-indicator"></div>
+                                                Critique
+                                            </div>
+                                        </MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </div>
+
+                            <div className="compact-form-group">
+                                <label className="compact-label">Avancement</label>
+                                <div className="avancement-container">
+                                    <TextField
+                                        type="number"
+                                        value={formData.pourcentage_avancement}
+                                        onChange={(e) => handleNumberChange('pourcentage_avancement', e.target.value)}
+                                        fullWidth
+                                        variant="outlined"
+                                        size="small"
+                                        inputProps={{ min: 0, max: 100 }}
+                                        className="avancement-input"
+                                        InputProps={{
+                                            endAdornment: <InputAdornment position="end">%</InputAdornment>,
+                                        }}
+                                    />
+                                    <div className="avancement-slider">
+                                        <div 
+                                            className="avancement-progress" 
+                                            style={{ width: `${formData.pourcentage_avancement}%` }}
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Dates réelles */}
+                        <div className="sidebar-section">
+                            <h4 className="sidebar-title">Dates réelles (optionnel)</h4>
+                            
+                            <div className="compact-form-group">
+                                <label className="compact-label">Date début réelle</label>
+                                <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={fr}>
+                                    <DatePicker
+                                        value={formData.date_debut_reelle}
+                                        onChange={(date) => handleChange('date_debut_reelle', date)}
+                                        renderInput={(params) => (
+                                            <TextField 
+                                                {...params} 
+                                                fullWidth 
+                                                size="small" 
+                                                className="compact-datepicker"
+                                            />
+                                        )}
+                                    />
+                                </LocalizationProvider>
+                            </div>
+
+                            <div className="compact-form-group">
+                                <label className="compact-label">Date fin réelle</label>
+                                <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={fr}>
+                                    <DatePicker
+                                        value={formData.date_fin_reelle}
+                                        onChange={(date) => handleChange('date_fin_reelle', date)}
+                                        renderInput={(params) => (
+                                            <TextField 
+                                                {...params} 
+                                                fullWidth 
+                                                size="small" 
+                                                className="compact-datepicker"
+                                            />
+                                        )}
+                                    />
+                                </LocalizationProvider>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Section Description (pleine largeur) */}
+                <div className="form-section full-width mb">
+                    <div className="section-header">
+                        <div className="section-icon">📝</div>
+                        <h3 className="section-title">Description du projet</h3>
+                    </div>
+                    
+                    <div className="form-group enhanced full-width">
+                        <TextField
+                            value={formData.description}
+                            onChange={(e) => handleChange('description', e.target.value)}
+                            fullWidth
+                            variant="outlined"
+                            size="small"
+                            multiline
+                            rows={4}
+                            className="modern-textarea"
+                            placeholder="Décrivez les objectifs, les bénéficiaires, et les spécificités du projet..."
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start" className="textarea-adornment">
+                                        <span className="input-icon">✏️</span>
+                                    </InputAdornment>
+                                ),
+                            }}
+                        />
+                        <div className="textarea-footer">
+                            <span className="char-count">{formData.description.length}/500 caractères</span>
+                            <span className="hint-text">Recommandé: 200-500 caractères</span>
+                        </div>
+                    </div>
+                </div>
+            </DialogContent>
+
+            {/* Actions avec style moderne */}
+            <DialogActions className="modern-dialog-actions">
+                <div className="actions-container">
+                    <button 
+                        type="button" 
+                        className="modern-btn secondary" 
+                        onClick={onClose}
+                    >
+                        <span className="btn-icon">❌</span>
+                        <span className="btn-text">Annuler</span>
+                    </button>
+                    
+                    <div className="primary-actions">
+                        <button 
+                            type="button" 
+                            className="modern-btn outline"
+                            onClick={() => {
+                                // Fonction pour réinitialiser le formulaire
+                                if (!projet) {
+                                    setFormData({
+                                        reference: `PROJ-${Date.now()}`,
+                                        nom: '',
+                                        description: '',
+                                        type_projet: 'infrastructure',
+                                        localisation: '',
+                                        budget_prevue: 0,
+                                        budget_depense: 0,
+                                        date_debut_prevue: null,
+                                        date_fin_prevue: null,
+                                        date_debut_reelle: null,
+                                        date_fin_reelle: null,
+                                        etat: 'planifie',
+                                        pourcentage_avancement: 0,
+                                        priorite: 'moyenne'
+                                    });
+                                }
+                            }}
+                        >
+                            <span className="btn-icon">🔄</span>
+                            <span className="btn-text">Réinitialiser</span>
+                        </button>
+                        
+                        <button 
+                            type="submit" 
+                            className="modern-btn primary"
+                        >
+                            <span className="btn-icon">
+                                {projet ? '💾' : '✨'}
+                            </span>
+                            <span className="btn-text">
+                                {projet ? "Mettre à jour" : "Créer le projet"}
+                            </span>
+                            <span className="btn-badge">CTRL + S</span>
+                        </button>
+                    </div>
+                </div>
+            </DialogActions>
+        </form>
     </Dialog>
   );
 };
@@ -1102,13 +1415,14 @@ const ProjetListes: React.FC = () => {
                             <FormControl size="small" className="type-filter">
                                 <InputLabel id="type-filter-label">Type</InputLabel>
                                 <Select
+                                    className='choix' 
                                     labelId="type-filter-label"
                                     value={filterType}
                                     label="Type"
                                     onChange={(e) => setFilterType(e.target.value as string)}
                                     endAdornment={
                                         filterType && (
-                                            <InputAdornment position="end">
+                                            <InputAdornment className='choix' position="end">
                                                 <IconButton
                                                     size="small"
                                                     onClick={() => setFilterType('')}
@@ -1191,16 +1505,13 @@ const ProjetListes: React.FC = () => {
                                         <thead>
                                             <tr className="projets-thead">
                                                 <th className="drag-column" title="Glisser pour réorganiser l'ordre des projets">
-                                                    <div className="column-header">
+                                                    <div className="">
                                                         <FaGripVertical className="header-icon" />
                                                     </div>
                                                 </th>
                                                 <th className='th'>Projet</th>
-                                                <th className='th'>Type</th>
-                                                <th className='th'>État</th>
                                                 <th className='th'>Budget</th>
-                                                <th className='th'>Avancement</th>
-                                                <th className='details-cell'>
+                                                <th className='details-cell-tete'>
                                                     Actions
                                                 </th>
                                             </tr>
@@ -1227,26 +1538,13 @@ const ProjetListes: React.FC = () => {
                                                     <td className='projet-cell'> 
                                                       <div className="flex">
                                                         <div className="projet-info">
-                                                          <div className="projet-nom">{projet.nom}</div>
+                                                          <div className="description-cellProjet projet-nom">{projet.nom}</div>
                                                           <div className="projet-reference">{projet.reference}</div>
                                                           <div className="projet-localisation">
                                                             <FaMapMarkerAlt /> {projet.localisation}
                                                           </div>
                                                         </div>
                                                       </div>
-                                                    </td>
-                                                    <td className="type-cell">
-                                                        <span className={`type-badge type-${projet.type_projet}`}>
-                                                            {projet.type_projet.charAt(0).toUpperCase() + projet.type_projet.slice(1)}
-                                                        </span>
-                                                    </td>
-                                                    <td className="etat-cell">
-                                                        <span 
-                                                            className="etat-badge" 
-                                                            style={{ backgroundColor: getEtatColor(projet.etat) }}
-                                                        >
-                                                            {projet.etat.replace('_', ' ')}
-                                                        </span>
                                                     </td>
                                                     <td className="budget-cell">
                                                         <div className="budget-info-compact">
@@ -1260,15 +1558,6 @@ const ProjetListes: React.FC = () => {
                                                                     }}
                                                                 ></div>
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                    <td className="avancement-cell">
-                                                        <div className="progress-bar-container compact">
-                                                            <div 
-                                                                className="progress-bar" 
-                                                                style={{ width: `${projet.pourcentage_avancement}%` }}
-                                                            ></div>
-                                                            <span className="progress-text">{projet.pourcentage_avancement}%</span>
                                                         </div>
                                                     </td>
                                                     <td className="details-cell">
