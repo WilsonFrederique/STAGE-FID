@@ -1,0 +1,98 @@
+@media only screen and (min-width: 320px) and (max-width: 992px) {
+    body, html{ overflow-x: hidden !important; }
+
+    header button.rounded-circle{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+
+    /* NavBar */
+    .res-hide{ display: none !important; }
+    header{padding: 5px 0 !important; height: auto;}
+    header .part1, header .part3{ padding: 0 !important; }
+    header .part1{ max-width: 40% !important; flex: 0 0 40% !important; }
+    header .logo img{ width: 53px !important; }
+    header .logo span{ font-size: 18px !important; }
+    header .part3{ max-width: 60% !important; flex: 0 0 60% !important; }
+    .menu-2{ display: inline-block !important; justify-content: center !important; align-items: center !important; }
+
+
+    /* SidBar */
+    .main .sidebarWrapper{ width: 56% !important; height: 100vh !important; position: fixed !important; 
+    top: 0 !important; left: -100% !important; z-index: 10000; opacity: 0; transition: all 0.4s ease-in-out; }
+    .main .sidebarWrapper .sidebar{ width: 100% !important; position: relative !important; 
+    top: 0 !important; max-height: inherit !important; }
+    .main .content{ width: 100% !important; flex: 0 0 100% !important; }
+    .right-content{ padding: 90px 15px !important; }
+
+
+    .sidebarOverlay{ position: fixed !important; top: 0; left: 0; background: rgba(0, 0, 0, 0.7); z-index: 1000; 
+    width: 100%; height: 100% !important; }
+
+
+    .sidebarWrapper.open{ left: 0 !important; opacity: 1 !important; }
+    .sidebarOverlay.show{ display: block !important; }
+
+
+    /* TableFooter */
+    .tableFooter{ flex-direction: column; }
+    .tableFooter nav{ margin-top: 25px; }
+    .tableFooter nav ul{ white-space: nowrap !important; overflow-x: scroll; overflow-y: hidden; display: block !important; 
+    margin-bottom: 20px !important; }
+    .tableFooter nav ul li{ display: inline-block !important; width: max-content !important; height: auto !important; }
+
+    /* Produit */
+    .card.shadow.border-0.w-100.flex-row{ margin-top: 0 !important; }
+
+    /* Produit Details */
+    .productInfo .col-sm-3{ max-width: 150px !important; flex: 0 0 150px !important; }
+    .productInfo .col-sm-7{ max-width: 60% !important; flex: 0 0 60% !important; padding-left: 0em !important; gap: 0.5em; }
+
+}
+
+@media only screen and (min-width: 320px) and (max-width: 791px){
+    .dashboardBoxWrapper .dashboardBox { width: 100% !important; }
+    .dashboardBoxWrapper .dashboardBox:last-child{ margin-bottom: 1.5em !important; }
+    .graphBox{ margin-left: 0.45em; }
+
+    /* ProduitList */
+    .dashboardBoxWrapper-produts { width: 100% !important; display: flex; flex-direction: column; }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 770px) {
+    .form .col{ max-width: 100% !important; flex: 0 0 100% !important; }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 575px) {
+    /* NavBar */
+    header .row{ margin: auto !important; }
+    header button.rounded-circle{ width: 32px !important; height: 32px !important; margin-right: 7px !important; 
+    min-width: 32px !important; }
+    header .btn-blue{ font-size: 12px !important; padding: 5px 10px !important; }
+    .userImg{ width: 33px !important; height: 33px !important; }
+    .myAccWrapper button{ padding: 0 !important; min-width: 45px !important; width: 45px !important; }
+
+
+    header button.rounded-circle{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    header button.rounded-circle svg {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        color: #292929;
+        font-size: 17px !important;
+    }
+
+
+
+    .flex-row h5{ font-size: 15px !important; }
+    .flex-row .StyledBreadcrumb{ font-size: 13px !important; }
+
+
+}

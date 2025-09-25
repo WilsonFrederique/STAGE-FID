@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{ margin: 0px; padding: 0px; text-decoration: none !important; list-style: none; }
+
+
+body{ font-family: "Open Sans", serif !important; background: #e2e1e1 !important; overflow-x: hidden; }
+/* Mode Sombre */
+body.dark{ background: #071739 !important;}
+
+.menu-2{ display: none !important; }
+
+
+::-webkit-scrollbar{ width: 5px !important; height: 5px !important; }
+::-webkit-scrollbar-thumb{ background: #0858f7 !important; border-radius: 10px; }
+::-webkit-scrollbar-track{ background: transparent !important; }
+
+
+/* base */
+.btn-blue{ background: #0858f7 !important; font-size: 14px !important; font-weight: 600 !important; 
+color: #fff !important; text-transform: capitalize !important; border-radius: 5px !important; 
+border-radius: 8px !important; }
+.btn-dang{ background: #fa3e31 !important; font-size: 14px !important; font-weight: 600 !important; 
+color: #fff !important; text-transform: capitalize !important; border-radius: 5px !important; 
+border-radius: 8px !important; }
+.btn-lg{ padding: 7px 25px !important; }
+.btn-big{ padding: 10px 25px !important; font-size: 16px !important; }
+.btn-big svg{ font-size: 20px !important; margin-right: 7px !important;  }
+.btn-round{ border-radius: 30px !important;}
+
+.full{ max-width: 100% !important; flex: 0 0 100% !important; width: 100% !important; }
+
+
+/* Logo NavBar */
+header{ width: 100%; height: 70px; background: rgba(255, 255, 255, 0.9); position: fixed; top: 0; left: 0; z-index: 1000; 
+-webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); }
+header .logo{ text-decoration: none; }
+header .logoFID img{ width: 100%; margin-left: 0.90rem; }
+header .logo span{ color: #222222; font-weight: 600; font-size: 0.96em; margin-left: 0.6rem !important; }
+/* Dark Mode */
+body.dark header{ background: #112143 !important; }
+body.dark header .logo span{ color: #fff; opacity: 0.8; }
+
+
+
+/* Button Menu NavBar */
+header button.rounded-circle{ min-width: 40px !important; width: 40px !important; 
+height: 40px !important; background: #e5ecfc; color: #292929; }
+header button.rounded-circle svg{ color: #292929; font-size: 20px !important; 
+transition: all 0.2s ease-in-out; }
+header button.rounded-circle:hover svg{ color: #0858f7 !important; }
+header .part2{ padding-left: 50px; }
+/* Dark Mode */
+body.dark header button.rounded-circle{ background: #1d366d !important; }
+body.dark header button.rounded-circle svg{ color: #fff; }
+
+.sidebarWrapper {
+    transition: all 0.3s ease;
+  }
+  .sidebarWrapper.open {
+    /* styles pour l'état ouvert */
+  }
+  .sidebarOverlay {
+    display: none;
+    /* autres styles */
+  }
+  .sidebarOverlay.show {
+    display: block;
+  }
+
+
+
+/* Input Recherche NavBar */
+.searchBox{ width: 400%; height: 40px; background: #e5ecfc; border-radius: 6px; padding: 3px 15px;}
+.searchBox input{ background: transparent; border: none; outline: none; padding-left: 0px; 
+font-size: 15px; color: #0a0a0a;}
+.searchBox input::-webkit-input-placeholder{ color: rgba(0, 0, 0, 0.8); }
+.searchBox svg{ font-size: 20px; color: #292929; }
+/* Dark Mode */
+body.dark .searchBox{ background: #1d366d; }
+body.dark .searchBox input{ color: #fff; }
+body.dark .searchBox svg{ color: #d3d3d3; }
+body.dark .searchBox input::-webkit-input-placeholder{ color: rgba(209, 209, 209, 0.8); }
+
+
+
+/* Profil Image Admin NavBar */
+.myAcc{ text-align: left !important; color: #0858f7 !important; text-transform: capitalize !important; }
+.userImg{ display: flex; align-items: center; justify-content: center; overflow: hidden; 
+width: 40px; height: 40px; border: 1px solid #0858f7; padding: 2px; border-radius: 100%; }
+.userImg .rounded-circle{ display: flex; align-items: center; justify-content: center; 
+overflow: hidden; width: 100%; height: 100%; cursor: pointer; position: relative; }
+.userImg .rounded-circle img{ object-fit: cover; width: 100%; height: 100%; height: 100%; }
+
+
+
+/* Profil Nom et Prenom Admin NavBar */
+.myAcc .userInfo{ padding-left: 10px; }
+.myAcc .userInfo h4{ font-size: 15px; font-weight: 600; margin-bottom: 0; color: #292929; line-height: 19px !important; }
+.myAcc .userInfo p{ margin-top: 0; font-size: 12px;color: #000; opacity: 0.8; }
+/* Mode Dark */
+body.dark .myAcc .userInfo *{ color: rgba(255, 255, 255, 0.8) !important; }
+body.dark .MuiPaper-elevation{ background: #103177 !important; }
+body.dark .MuiPaper-elevation li *, body.dark .MuiPaper-elevation li{ color: rgba(255, 255, 255, 0.8) !important; }
+
+
+
+/* Menu Apres Click Profil Nom Prenom Admin NavBar */
+#account-menu li{ font-size: 14px !important; padding: 12px 15px; }
+#account-menu li svg{ font-size: 20px !important; }
+
+
+
+/* Menu Apres Click Btn Notification */
+#notifications .MuiPaper-elevation{ right: 199px !important; width: 300px !important; left: auto !important; 
+top: 61px !important; }
+.dropdown_list .head{ padding: 5px 0; }
+.dropdown_list .head h4{ font-size: 17px; font-weight: 600; } 
+.dropdown_list li.MuiButtonBase-root{ background: #ebf6ff !important; color: #000 !important; padding: 10px 15px; }
+.dropdown_list li.MuiButtonBase-root:hover{ background: #e2e8eb !important; }
+.dropdownInfo{ padding-left: 15px; }
+.dropdownInfo h4{ font-size: 14px; font-weight: 500; white-space: break-spaces; line-height: 25px; margin-top: 0; 
+margin-bottom: 0; }
+.dropdownInfo h4 b{ font-weight: 600; margin-right: 5px; } 
+.dropdownInfo p{ font-size: 12px; font-weight: 500; margin-top: 0; }
+.text-sky{ color: #0858f7; }
+.btn-primary{ background: #0858f7 !important; font-weight: 500 !important; font-size: 14px !important; 
+color: #fff !important; text-transform: capitalize !important; border-radius: 5px !important; }
+/* Dark Mode */
+body.dark .dropdown_list li.MuiButtonBase-root{ background: #112143 !important; }
+body.dark .dropdown_list .head{ color: #fff; }
+body.dark .dropdown_list .head h4{ color: rgba(255, 255, 255, 0.9) !important; }
+
+
+
+/* SideBar */
+.main .sidebarWrapper{ width: 20%; flex: 0 0 20%; transition: all 0.3s; }
+.main .sidebarWrapper.toggle{ width: 0%; flex: 0 0 0%; }
+.main .sidebarWrapper .sidebar{ width: 20%; height: 100vh; max-height: calc(100% - 70px) !important; 
+position: fixed; top: 70px; left: 0; background: rgba(255, 255, 255, 0.9) !important; overflow-y: scroll; 
+overflow-x: hidden; padding-bottom: 40px; -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); 
+transition: all 0.3s; }
+.main .sidebarWrapper.toggle .sidebar{ left: -100%; }
+.main .sidebarWrapper .sidebar::-webkit-scrollbar{ width: 3px !important; }
+.main .sidebarWrapper .sidebar::-webkit-scrollbar-thumb{ background: transparent !important; }
+.main .sidebarWrapper:hover .sidebar::-webkit-scrollbar{ background: #0858f7 !important; }
+/* Mode Sombre */
+body.dark .main .sidebarWrapper .sidebar{ background: #112143 !important; }
+/* déconnexion */
+.main .sidebarWrapper .sidebar{ width: 20%; height: 100vh; max-height: calc(100% - 70px) !important; position: fixed; top: 70px; 
+left: 0; background: rgba(255, 255, 255, 0.9) !important; overflow-y: auto; overflow-x: hidden; padding-bottom: 40px; 
+-webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); transition: all 0.3s; display: flex; flex-direction: column; }
+/* Positionnement du bouton de déconnexion */
+.logoutWrapper { margin-top: auto; padding: 0 25px; margin-bottom: 20px; }
+
+
+/* SideBar button */
+.main .sidebarWrapper .sidebar ul{ margin-bottom: 0; padding: 10px 15px; }
+.main .sidebarWrapper .sidebar ul li{ list-style: none; }
+.main .sidebarWrapper .sidebar ul li button{ color: #5e5d72 !important; text-align: left; justify-content: left; 
+border-radius: 10px !important; padding: 12px 15px !important; align-items: center; font-size: 15px !important; 
+text-transform: capitalize !important; font-weight: 600 !important; font-family: "Open Sans", serif !important; }
+.main .sidebarWrapper .sidebar ul li button .icon{ display: flex; align-items: center; justify-content: center; 
+width: 25px; height: 25px; margin-right: 10px; }
+.main .sidebarWrapper .sidebar ul li button .icon svg{ color: #000 !important; font-size: 22px; }
+.main .sidebarWrapper .sidebar ul li button *{color: #5e5d72 !important;}
+.main .sidebarWrapper .sidebar ul li button .arrow{ margin-left: auto; display: flex; align-items: center; 
+justify-content: center; width: 25px; height: 25px; transition: all 0.3s ease-in-out; }
+.main .sidebarWrapper .sidebar ul li button:hover{ background: #f1f1f1 !important; }  
+.main .sidebarWrapper .sidebar ul li button.active{ background: #f1f1f1 !important; }
+.main .sidebarWrapper .sidebar ul li button.active .icon svg{ fill: #0858f7 !important; }
+.main .sidebarWrapper .sidebar ul li button.active .arrow{ transform: rotate(90deg); color: #0858f7; }
+/* Mode Sombre */
+body.dark .main .sidebarWrapper .sidebar ul li button{ color: rgba(255, 255, 255, 0.8) !important; }
+body.dark .main .sidebarWrapper .sidebar ul li button:hover{ background: rgba(255, 255, 255, 0.1) !important; }
+body.dark .main .sidebarWrapper .sidebar ul li button.active{ background: rgba(255, 255, 255, 0.1) !important; }
+
+
+
+
+/* Sous Menu Btn SideBar */
+.main .sidebarWrapper .sidebar ul .submenu{ padding: 0 49px; position: relative; transition: all 0.3s; height: 0; }
+.main .sidebarWrapper .sidebar ul .submenu::before{ content: ''; width: 1px; height: 95%; position: absolute; 
+top: 0; left: 25px; background: rgba(0, 0, 0, 0.2);}
+.main .sidebarWrapper .sidebar ul .submenu li{ width: 100% !important; list-style: none !important; }
+.main .sidebarWrapper .sidebar ul .submenu li a{ color: #5e5d72 !important; text-decoration: none !important; 
+display: block; padding: 6px 0; font-size: 14px; font-weight: 500; transition: all 0.3s ease-in-out; }
+.main .sidebarWrapper .sidebar ul .submenu li a:hover{ color: #0858f7 !important; }
+/* --------------------------------------------------------------------------------------------------------------- */
+/* Sous Menu Btn SideBar Non Affiché Pour submenuWrapper */
+.main .sidebarWrapper .sidebar ul .submenuWrapper{ transition: all 0.4s; height: 0; overflow: hidden; }
+.main .sidebarWrapper .sidebar ul .submenuWrapper.colapsed .submenu{ opacity: 0; }
+/* Sous Menu Btn SideBar Non Affiché Pour submenuWrapperProjet */
+.main .sidebarWrapper .sidebar ul .submenuWrapperProjet{ transition: all 0.4s; height: 0; overflow: hidden; }
+.main .submenuWrapperProjet .sidebar ul .submenuWrapperProjet.colapsed .submenu{ opacity: 0; }
+/* Sous Menu Btn SideBar Non Affiché Pour submenuWrapperUser */
+.main .sidebarWrapper .sidebar ul .submenuWrapperUser{ transition: all 0.4s; height: 0; overflow: hidden; }
+.main .submenuWrapperUser .sidebar ul .submenuWrapperUser.colapsed .submenu{ opacity: 0; }
+/* Sous Menu Btn SideBar Non Affiché Pour submenuWrapperSuivi */
+.main .sidebarWrapper .sidebar ul .submenuWrapperSuivi{ transition: all 0.4s; height: 0; overflow: hidden; }
+.main .submenuWrapperSuivi .sidebar ul .submenuWrapperSuivi.colapsed .submenu{ opacity: 0; }
+/* Sous Menu Btn SideBar Non Affiché Pour submenuWrapperPrestataires */
+.main .sidebarWrapper .sidebar ul .submenuWrapperPrestataires{ transition: all 0.4s; height: 0; overflow: hidden; }
+.main .submenuWrapperPrestataires .sidebar ul .submenuWrapperPrestataires.colapsed .submenu{ opacity: 0; }
+/* Sous Menu Btn SideBar Non Affiché Pour submenuWrapperContrtPaiement */
+.main .sidebarWrapper .sidebar ul .submenuWrapperContrtPaiement{ transition: all 0.4s; height: 0; overflow: hidden; }
+.main .submenuWrapperContrtPaiement .sidebar ul .submenuWrapperContrtPaiement.colapsed .submenu{ opacity: 0; }
+/* --------------------------------------------------------------------------------------------------------------- */
+/* Sous Menu Btn SideBar Affiché Pour submenuWrapper */
+.main .sidebarWrapper .sidebar ul .submenuWrapper.colapse{ height: auto; overflow: inherit; opacity: 1; }
+.main .sidebarWrapper .sidebar ul .submenuWrapper.colapse .submenu{ opacity: 1; height: auto; }
+/* Sous Menu Btn SideBar Affiché Pour submenuWrapperProjet */
+.main .sidebarWrapper .sidebar ul .submenuWrapperProjet.colapse{ height: auto; overflow: inherit; opacity: 1; }
+.main .sidebarWrapper .sidebar ul .submenuWrapperProjet.colapse .submenu{ opacity: 1; height: auto; }
+/* Sous Menu Btn SideBar Affiché Pour submenuWrapperUser */
+.main .sidebarWrapper .sidebar ul .submenuWrapperUser.colapse{ height: auto; overflow: inherit; opacity: 1; }
+.main .sidebarWrapper .sidebar ul .submenuWrapperUser.colapse .submenu{ opacity: 1; height: auto; }
+/* Sous Menu Btn SideBar Affiché Pour submenuWrapperSuivi */
+.main .sidebarWrapper .sidebar ul .submenuWrapperSuivi.colapse{ height: auto; overflow: inherit; opacity: 1; }
+.main .sidebarWrapper .sidebar ul .submenuWrapperSuivi.colapse .submenu{ opacity: 1; height: auto; }
+/* Sous Menu Btn SideBar Affiché Pour submenuWrapperPrestataires */
+.main .sidebarWrapper .sidebar ul .submenuWrapperPrestataires.colapse{ height: auto; overflow: inherit; opacity: 1; }
+.main .sidebarWrapper .sidebar ul .submenuWrapperPrestataires.colapse .submenu{ opacity: 1; height: auto; }
+/* Sous Menu Btn SideBar Affiché Pour submenuWrapperContrtPaiement */
+.main .sidebarWrapper .sidebar ul .submenuWrapperContrtPaiement.colapse{ height: auto; overflow: inherit; opacity: 1; }
+.main .sidebarWrapper .sidebar ul .submenuWrapperContrtPaiement.colapse .submenu{ opacity: 1; height: auto; }
+/* --------------------------------------------------------------------------------------------------------------- */
+/* Mode Sombre */
+body.dark .main .sidebarWrapper .sidebar ul .submenu::before{ background: rgba(255, 255, 255, 0.2) !important; }
+body.dark .main .sidebarWrapper .sidebar ul .submenu li a{ color: rgba(255, 255, 255, 0.7) !important; }
+body.dark .main .sidebarWrapper .sidebar ul .submenu li a:hover{ color: #0858f7 !important; }
+
+
+
+/* Logout NavBar */
+.logoutWrapper{ padding: 0 25px; }
+.logoutWrapper .logoutBox{ width: 100%; height: 130px; padding: 25px; background: #bcd2fb; border-radius: 10px;
+display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.logoutWrapper .logoutBox::before{ content: ''; width: 70px; height: 70px; background: #0858f7; border-radius: 100%; 
+position: absolute; top: -20px; right: -20px; opacity: 0.5; }
+.logoutWrapper .logoutBox::after{ content: ''; width: 30px; height: 30px; background: #0858f7; border-radius: 100%; 
+position: absolute; top: 20px; left: 10px; opacity: 0.5; }
+.logoutWrapper .logoutBox button{ font-size: 14px !important; font-weight: 600; }
+.logoutWrapper .logoutBox button svg{ margin-right: 6px; font-size: 18px !important; }
+/* Mode Sombre */
+body.dark .logoutWrapper .logoutBox { background: linear-gradient(rgba(37, 84, 172, 0.25), rgba(14, 42, 102, 0.4)) !important; }
+
+
+
+
+/* Dashboard Right Content */
+.main .content{ width: 80%; flex: 0 0 80%; transition: all 0.3; }
+.main .content.toggle{ width: 100%; flex: 0 0 100%; }
+.right-content{ padding: 84px 20px; padding-bottom: 10px; }
+.dashboardBoxWrapper-produts{ gap: 20px; width: 100%; display: flex; }
+.dashboardBoxWrapper{ gap: 20px; width: 100%; flex-wrap: wrap; }
+.dashboardBoxWrapper .dashboardBox{ width: 48%; height: 170px; border-radius: 10px; overflow: hidden; padding: 20px; 
+display: flex; flex-direction: column; justify-content: space-around; text-align: left !important; position: relative; 
+color: #fff; text-transform: capitalize !important; }
+.dashboardBoxWrapper .dashboardBox .col1 h4{ font-size: 16px; font-weight: 600; }
+.dashboardBoxWrapper .dashboardBox .col1 span{ font-size: 35px !important; font-weight: bold; line-height: 30px; }
+.dashboardBoxWrapper .dashboardBox .icon{ display: flex; align-items: center; justify-content: center; width: 50px; 
+height: 50px; border-radius: 10px; background-image: linear-gradient(to bottom right, rgba(0,0,0,0.0), rgba(0,0,0,0.2)); }
+.dashboardBoxWrapper .dashboardBox .icon svg{ font-size: 36px; opacity: 0.5; color: #fff; }
+.dashboardBoxWrapper .dashboardBox .toggleIcon{ font-size: 22px; color: rgba(0, 0, 0, 0.6); cursor: pointer; 
+min-width: 40px !important; width: 40px !important; height: 40px !important; border-radius: 50% !important; }
+.dashboardBoxWrapper .dashboardBox .chart{ opacity: 0.060; position: absolute; 
+bottom: 20px; left: 20px; }
+
+.my-bar-chart {
+    background-color: #fff; /* Fond blanc */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 10px; /* Ajoute un peu d’espace intérieur */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+body.dark .my-bar-chart{ background-color: #5c76b095; }
+
+.dashboardBoxWrapper .dashboardBox .chart svg{ font-size: 110px; color: #000; }
+.dashboardBoxWrapper .dashboardBox .bottomEle{ position: relative; top: 15px; }
+.dashboardBoxWrapperRow .box{ width: 100%; height: 100%; }
+/* Sous Menu Dans trois points sur Box  */
+.dashboardBoxWrapper .dashboardBox .MuiList-root svg{ color: #000 !important; font-size: 17px !important; 
+margin-right: 10px !important; }
+.boxdown_menu .MuiButtonBase-root svg{ margin-right: 10px !important; }
+/* Box Right */
+.graphBox{background-image: linear-gradient(#1a50b5, #2a6ff7); border-radius: 10px; padding: 25px; }
+.toggleIcon{ font-size: 22px; color: rgba(0, 0, 0, 0.6); cursor: pointer; min-width: 40px !important; 
+width: 40px !important; height: 40px !important; border-radius: 50% !important; }
+.graphBox .toggleIcon svg{ color: #fff !important;font-size: 20px !important; opacity: 1 !important; }
+.graphBox h4{ font-size: 16px; font-weight: 600; }
+.graphBox p{ font-size: 13px; color: #fff; opacity: 0.7; }
+
+
+
+
+
+/* Product Upload */
+.form .form-group{ margin-bottom: 25px !important; }
+.form .form-group h6{ margin-bottom: 10px; font-size: 13px; }
+.form .form-group input, .form .form-group textarea{ background: #fafafa !important; width: 100% !important; outline: none !important; 
+height: 40px !important; border: 1px solid rgba(0, 0, 0, 0.1) !important; color: #000; padding-left: 15px !important; 
+border-radius: 5px !important; font-size: 16px; }
+.MuiSelect-select{ background: #fafafa !important; width: 100% !important; outline: none !important; border: 1px solid #fff !important; 
+height: 1px !important; }
+.css-w76bbz-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select { min-height: 0.7em !important; padding: 0.6em 0.8em 1.3em; }
+.form .form-group textarea{ height: 120px !important; padding-top: 15px !important; }
+/* Theme Sombre */
+body.dark .form .form-group input, body.dark .form .form-group textarea{ background: #1b2b4d !important; color: #f5f5f5; 
+border: 1px solid #2c3d63 !important; }
+body.dark .MuiSelect-select{ border: 1px solid #4a5e8a !important; background: #1b2b4d !important; color: #f5f5f5; }
+
+.imgUploadBox { display: flex; align-items: center; gap: 10px; }
+.imgUploadBox .uploadBox { width: 150px; height: 140px; border: 1px dashed #ccc; border-radius: 10px; position: relative; overflow: hidden;
+display: flex; align-items: center; justify-content: center; background: #f9f9f9; transition: background 0.3s ease-in-out; }
+.imgUploadBox .uploadBox:hover { background: #f1f1f11c !important; }
+body.dark .imgUploadBox .uploadBox { border: 1px dashed #666666 !important; background: #1b2b4d; }
+.imgUploadBox .uploadBox .remove { position: absolute; top: 5px; right: 5px; background: #f34242; color: white; width: 24px; height: 24px; border-radius: 50%;
+display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; }
+.imgUploadBox .uploadBox .remove .svg { font-size: 14px !important; }
+.imgUploadBox .uploadBox .MuiBox-root { position: absolute !important; }
+.imgUploadBox .uploadBox img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+.imgUploadBox .uploadBox input { position: absolute; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.imgUploadBox .uploadBox .info { display: flex; align-items: center; justify-content: center; flex-direction: column; pointer-events: none; color: #666; }
+.imgUploadBox .uploadBox .info svg { font-size: 50px; opacity: 0.2; }
+.imgUploadBox .uploadBox .info h5 { font-size: 15px; text-align: center; opacity: 0.5; }
+
+.upercase{ text-transform: uppercase !important; }
+
+
+/* Product */
+.add-product{ justify-content: space-between !important; align-items: center !important; }
+
+/* Message */
+.dot{ color: #329c12 !important; font-size: 20px !important; }
+body.dark .dot{ color: #329c12 !important; font-size: 20px !important; }
+.p-message{ color: black !important; font-weight: 350 !important; }
+body.dark .p-message{ color: #fff !important; font-weight: 350 !important; }
+.friends span{ color: #464646 !important; }
+body.dark .friends span{ color: #9f9f9f !important; }
+
+
+
+
+
+
+/* Fotter */
+.place-footer{
+    background: rgba(149, 163, 197, 0.178) !important;
+    padding-left: 0 !important;
+    border-radius: 10px 10px 0 0;
+}
+
+body.dark .place-footer div{
+    color: #f1f1f1 !important;
+}
+
+body.dark .place-footer p, body.dark .place-footer .h{
+    color: #f1f1f1a4 !important;
+}
+
+body.dark .place-footer .hh{
+    color: #3e7af1 !important;
+}
+
+.bg-top{
+    background: #31529ad5 !important;
+}
+body.dark .bg-top{
+    background: #9daccd6c !important;
+}
+
+
+
+
+
+/* ===== CHARTS AND ALERTS SECTION - ULTRA MODERNE ===== */
+
+element.style {
+    box-sizing: border-box !important;
+    display: block !important;
+    height: 100% !important;
+    width: 707px !important;
+}
+
+.flex.items-start {
+    display: flex !important;
+    align-items: flex-start !important;
+}
+
+/* Icons Styling */
+.bg-red-50 svg,
+.bg-yellow-50 svg,
+.bg-blue-50 svg {
+    font-size: 1.5rem !important;
+    opacity: 0.9 !important;
+    transition: all 0.3s ease !important;
+}
+
+
+.bg-yellow-50:hover svg {
+    color: #f59e0b !important;
+    transform: scale(1.1) !important;
+}
+
+.bg-blue-50:hover svg {
+    color: #3b82f6 !important;
+    transform: scale(1.1) !important;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .bg-white {
+        background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%) !important;
+    }
+    
+    .text-gray-900 {
+        color: #f7fafc !important;
+    }
+    
+    .text-gray-500 {
+        color: #a0aec0 !important;
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0 !important;
+        transform: translateY(20px) !important;
+    }
+    to {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .p-6 {
+        padding: 1rem !important;
+    }
+    
+    .h-64 {
+        height: 12rem !important;
+    }
+    
+    .text-lg {
+        font-size: 1rem !important;
+    }
+    
+    .flex.items-start {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    
+    .ml-3 {
+        margin-left: 0 !important;
+        margin-top: 0.5rem !important;
+    }
+}
+
+/* Glass Morphism Effect for Modern Look */
+.shadow-soft {
+    background: rgba(255, 255, 255, 0.95) !important;
+}
+
+body.dark .shadow-soft {
+    background: rgba(58, 70, 176, 0.174) !important;
+}
+
+body.dark .bg-dark-1{
+    background: rgba(201, 112, 112, 0.126) !important;
+    border: 2px solid rgba(255, 0, 0, 0.152) !important;
+}
+
+body.dark .bg-dark-2{
+    background: rgba(201, 201, 112, 0.119) !important;
+    border: 2px solid rgba(255, 251, 0, 0.152) !important;
+}
+
+body.dark .bg-dark-3{
+    background: rgba(112, 118, 201, 0.112) !important;
+    border: 2px solid rgba(0, 89, 255, 0.152) !important;
+}
+
+body.dark .dark{
+    color: #ffffffda !important;
+}

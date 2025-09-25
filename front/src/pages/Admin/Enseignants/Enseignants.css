@@ -1,0 +1,48 @@
+.chat{
+    place-items: center;
+}
+
+.chat-container{
+    width: 100%;
+    max-width: 100%;
+    height: 67vh !important;
+    background-color: rgb(213, 223, 232);
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative !important;
+}
+
+body.dark .chat-container{
+    background-color: rgb(11, 27, 65);
+}
+
+.style-place-chat img{
+    position: absolute;
+    width: 100%;
+    height: 65vh;
+}
+
+.chat-btn-haut{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-btn-haut p{
+    font-size: 1.1em;
+}
+
+.chat-btn-haut .deux-icin{
+    display: flex;
+    gap: 0.6em;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.chat-btn-haut .icon-btn:hover{
+    color: #3368db !important;
+}
+
+body.dark .chat-btn-haut .icon-btn:hover{
+    color: #3368db !important;
+}

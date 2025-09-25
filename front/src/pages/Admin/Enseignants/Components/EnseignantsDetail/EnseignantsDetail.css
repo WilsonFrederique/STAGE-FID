@@ -1,0 +1,190 @@
+.btn-back-suppr-clien-view {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.btn-danger {
+    text-align: center !important;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+  
+.btn-prm {
+    background-color: #3266ff;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    cursor: pointer;
+  }
+  
+  .btn-prm:hover {
+    background-color: #053de6;
+    border-color: #fff;
+    transform: translateY(-2px);
+  }
+
+
+
+
+  .img-avatar{
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #636363;
+  }
+  
+
+  
+
+
+.btn-back-suppr-clien-view svg{
+    font-size: 1.3em;
+}
+
+.text-xl{
+    text-transform: uppercase;
+}
+
+.group-cmd, .group-cmd-btn{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5em;
+}
+
+.group-cmd-btn svg{
+    padding: 0.17em;
+    color: #e83010;
+    font-size: 2em;
+    text-shadow: 0 0 5px #0000002d;
+    box-shadow: 0 0 5px #0000002d;
+    border-radius: 10px !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.group-cmd-btn svg:hover{
+    background: #e83010;
+    color: #fff;
+}
+
+.group-cmd-btn .icon-produit-right{
+    padding: 0.17em;
+    color: #0d6efd;
+    font-size: 2em;
+    text-shadow: 0 0 5px #0000002d;
+    box-shadow: 0 0 5px #0000002d;
+    border-radius: 10px !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.group-cmd-btn .icon-produit-right:hover{
+    background: #0d6efd;
+    color: #fff;
+}
+
+.group-cmd-btn .rotate{
+    transform: rotate(180deg);
+}
+
+.btn-right-cmd{
+    display: flex;
+    gap: 0.4em;
+}
+
+.group-cmd-btn button{
+    background: transparent !important;
+    border: none;
+}
+
+body.dark .group-cmd-btn svg{
+    box-shadow: 0 0 5px #efefef2d;
+}
+
+.group-cmd-btn .deux-btn-bottom{
+    display: flex;
+    gap: 0.7em !important;
+}
+
+.plave-quantite{
+    line-height: 1;
+}
+
+.p-quantite{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.4em;
+}
+
+.font-semibold{
+    display: flex;
+    align-items: center;
+}
+
+.spna-oui-non{
+    font-weight: 500;
+    padding: 0.4em;
+    background: #0d6efd;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.span-cantite-chiffre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    box-shadow: 0 0 5px #000000af;
+    border-radius: 4px;
+    padding: 0.15em;
+    margin-top: 0;
+}
+
+body.dark .span-cantite-chiffre{
+    box-shadow: 0 0 5px #cbcbcbaf;
+}
+
+.place-img-produit-cmd-de-client{
+    border-radius: 7px !important;
+    position: relative;
+    background: green !important;
+    max-width: 70px;
+    width: 70px;
+    height: 8vh;
+}
+
+.place-img-produit-cmd-de-client img{
+    border-radius: 7px !important;
+    width: 100%;
+    height: 100%;
+}
+
+
