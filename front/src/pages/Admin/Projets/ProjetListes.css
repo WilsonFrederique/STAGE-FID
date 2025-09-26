@@ -204,7 +204,9 @@ body.dark .css-jhr02i-MuiBreadcrumbs-separator{
 }
 
 body.dark .search-input, body.dark .type-filter, body.dark .MuiSelect-select {
-    background: #1d366d;
+    background: transparent !important;
+    border: 1px solid #f3e5f5 !important;
+    border-radius: 10px !important;
 }
 
 
@@ -685,12 +687,12 @@ body.dark .drag-handle:hover {
 }
 
 .delete-btn {
-    color: var(--danger-color);
+    color: rgb(224, 92, 92);
     background: rgba(247, 37, 133, 0.1);
 }
 
 .delete-btn:hover {
-    background: var(--danger-color);
+    background: rgb(216, 56, 56);
     color: white;
     transform: translateY(-2px);
 }
@@ -1546,9 +1548,13 @@ select:focus-visible {
 /* En-tête du dialogue */
 .modern-dialog-header {
     padding: 0;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: rgb(64, 129, 203) !important;
     position: relative;
     overflow: hidden;
+}
+
+body.dark .modern-dialog-header {
+    background: rgba(64, 129, 203, 0.451) !important;
 }
 
 .modern-dialog-header::before {
@@ -1695,11 +1701,16 @@ select:focus-visible {
     overflow-y: auto;
 }
 
+body.dark .modern-dialog-content{
+  background: rgba(46, 73, 116, 0.884) !important;
+}
+
 .modern-form-layout {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 32px;
     margin-bottom: 24px;
+    margin-top: 2em !important;
 }
 
 .form-main-column {
@@ -1722,6 +1733,16 @@ select:focus-visible {
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
+}
+
+body.dark .form-section{
+  background: #1b296039 !important;
+}
+
+body.dark .css-ot336b-MuiInputBase-root-MuiOutlinedInput-root{
+  background: transparent !important;
+  border: 1px solid #ffffff;
+  color: #f3e5f5;
 }
 
 .form-section:hover {
@@ -1766,6 +1787,16 @@ select:focus-visible {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+body.dark .css-1n04w30-MuiInputBase-root-MuiOutlinedInput-root{
+  background: transparent !important;
+  border: 1px solid #f3e5f5 !important;
+  color: #f3e5f5 !important;
+}
+
+body.dark .css-15fu35s-MuiDialogActions-root{
+  background: rgba(46, 75, 142, 0.896) !important;
 }
 
 .form-label {
@@ -1892,27 +1923,22 @@ select:focus-visible {
 }
 
 .status-badge[data-status="planifie"] {
-    background: #fef3c7;
     color: #d97706;
 }
 
 .status-badge[data-status="en_cours"] {
-    background: #dbeafe;
     color: #1d4ed8;
 }
 
 .status-badge[data-status="suspendu"] {
-    background: #fecaca;
     color: #dc2626;
 }
 
 .status-badge[data-status="termine"] {
-    background: #d1fae5;
     color: #065f46;
 }
 
 .status-badge[data-status="annule"] {
-    background: #f3f4f6;
     color: #6b7280;
 }
 
@@ -1963,17 +1989,14 @@ select:focus-visible {
 }
 
 .priority-badge[data-priority="moyenne"] {
-    background: #fef3c7;
     color: #d97706;
 }
 
 .priority-badge[data-priority="haute"] {
-    background: #fed7aa;
     color: #ea580c;
 }
 
 .priority-badge[data-priority="critique"] {
-    background: #fecaca;
     color: #dc2626;
 }
 
@@ -2035,6 +2058,12 @@ select:focus-visible {
     border-radius: 16px;
     background: var(--input-bg);
     transition: all 0.3s ease;
+}
+
+body.dark .modern-textarea .MuiOutlinedInput-root{
+  background: transparent !important;
+  border: 1px solid #f3e5f585;
+  color: #f3e5f5;
 }
 
 .modern-textarea .MuiOutlinedInput-root:hover {
@@ -2112,9 +2141,15 @@ select:focus-visible {
 }
 
 .modern-btn.outline {
-    background: transparent;
+    background: transparent !important;
     color: var(--primary-color);
     border-color: var(--primary-color);
+}
+
+body.dark .modern-btn.outline {
+    background: transparent !important;
+    color: #e5e6f599;
+    border: none !important;
 }
 
 .modern-btn.outline:hover {
@@ -2412,6 +2447,12 @@ body.dark .sidebar-section {
     box-shadow: 0 8px 25px rgba(67, 97, 238, 0.15);
 }
 
+body.dark .css-1e3qgpi-MuiInputBase-root-MuiOutlinedInput-root{
+  background: transparent !important;
+  border: 1px solid #f3e5f5;
+  color: #f3e5f5;
+}
+
 /* Scrollbar personnalisée pour le contenu */
 .modern-dialog-content::-webkit-scrollbar {
     width: 6px;
@@ -2529,6 +2570,12 @@ body.dark .sidebar-section {
     border-color: var(--border-color);
     order: 3; /* Place en bas sur mobile */
     width: 100%;
+}
+
+body.dark .modern-btn.secondary{
+  background: rgba(30, 47, 101, 0.488) !important;
+  color: rgb(198, 93, 93) !important;
+  border-color: rgb(198, 93, 93) !important;
 }
 
 .modern-btn.outline {

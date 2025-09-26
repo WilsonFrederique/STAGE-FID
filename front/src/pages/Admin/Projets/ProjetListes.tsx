@@ -21,6 +21,8 @@ import {
 import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { fr } from 'date-fns/locale';
+import ScrollToTop from '../../../components/Helper/ScrollToTop';
+import Footer from '../../../components/Footer/Footer';
 
 // Types TypeScript
 interface Projet {
@@ -1486,6 +1488,16 @@ const ProjetListes: React.FC = () => {
                             <div className="d-flex add-product">
                                 <h3 className="hd">Liste des projets</h3>
                                 <div className="action-buttons">
+                                    <Tooltip title="Projets par région">
+                                        <button className="action-icon">
+                                            Par région
+                                        </button>
+                                    </Tooltip>
+                                    <Tooltip title="Projets en retard">
+                                        <button className="action-icon">
+                                            En retard
+                                        </button>
+                                    </Tooltip>
                                     <Tooltip title="Imprimer">
                                         <button className="action-icon" onClick={() => window.print()}>
                                             <ImPrinter className='impression' />
@@ -1667,19 +1679,10 @@ const ProjetListes: React.FC = () => {
                     </Alert>
                 </Snackbar>
 
-                <footer className="footer">
-                    <div className="footer-text">
-                        <p>&copy; 2025 par Gestionnaire de Projets | Tous Droits Réservés.</p>
-                    </div>
-                    <div className="footer-iconTop">
-                        <a href="#top" onClick={(e) => {
-                            e.preventDefault();
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}>
-                            <GoMoveToTop />
-                        </a>
-                    </div>
-                </footer>
+                <div>
+                  <ScrollToTop />
+                  <Footer />
+                </div>
             </div>
         </div>
     )

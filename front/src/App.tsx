@@ -9,6 +9,7 @@ import Enseignants from "./pages/Admin/Enseignants/Enseignants";
 import EnseignantsDetail from "./pages/Admin/Enseignants/Components/EnseignantsDetail/EnseignantsDetail";
 
 import ProjetListes from "./pages/Admin/Projets/ProjetListes";
+import BudgetVS from "./pages/Admin/Projets/BudgetVS";
 import MatiersFrm from "./pages/Admin/MatiersFRM/MatiersFrm";
 
 
@@ -124,6 +125,7 @@ export default function App() {
               <Route path="/enseignants/details" element={<EnseignantsDetail />} />
 
               <Route path="/projetListes" element={<ProjetListes />} />
+              <Route path="/budgetVS" element={<BudgetVS />} />
               <Route path="/matiereFrm" element={<MatiersFrm />} />
 
             </Routes>

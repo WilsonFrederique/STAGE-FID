@@ -128,10 +128,8 @@ const SidBar = () => {
                             </Button>
                             <div className={`submenuWrapper ${activeTab === 1 && isToggleSubmenuProjet ? 'colapse' : 'colapsed'}`}>
                                 <ul className="submenu">
-                                    <li><Link to="/projetListes">Projets par région</Link></li>
-                                    <li><Link to="/projets-retard">Projets en retard</Link></li>
-                                    <li><Link to="/projets-risque">Projets à haut risque</Link></li>
-                                    <li><Link to="/projets-budget">Budget consommé vs prévu</Link></li>
+                                    <li><Link to="/projetListes">Liste des projets</Link></li>
+                                    <li><Link to="/budgetVS">Budget consommé vs prévu</Link></li>
                                 </ul>
                             </div>
                         </li>
